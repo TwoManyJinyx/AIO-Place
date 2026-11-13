@@ -2,7 +2,7 @@
   "expo": {
     "name": "AIO Place",
     "slug": "AIOPlace",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "aioplace",
@@ -12,6 +12,7 @@
     },
     "android": {
       "package": "com.twomanyjinyx.aioplace",
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
