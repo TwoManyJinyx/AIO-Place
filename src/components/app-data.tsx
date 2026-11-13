@@ -48,6 +48,7 @@ type AppData = AppState & {
   updateFocus: (focus: FocusSession) => void;
 };
 
+// Keep this key stable so existing installs retain their saved data after the rename.
 const STORAGE_KEY = 'daymark.app-state.v1';
 const today = new Date();
 const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
@@ -116,13 +117,13 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
         if (!active) return;
         if (stored) {
           const parsed: unknown = JSON.parse(stored);
-          if (!isAppState(parsed)) throw new Error('Saved Daymark data has an invalid shape.');
+          if (!isAppState(parsed)) throw new Error('Saved AIO Place data has an invalid shape.');
           setState(parsed);
         }
         setCanPersist(true);
       })
       .catch((error: unknown) => {
-        console.error('Could not load saved Daymark data.', error);
+        console.error('Could not load saved AIO Place data.', error);
         if (active) setStorageError('Your saved data could not be read, so it has been left untouched.');
       })
       .finally(() => {
@@ -136,7 +137,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!ready || !canPersist) return;
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state)).catch((error: unknown) => {
-      console.error('Could not save Daymark data.', error);
+      console.error('Could not save AIO Place data.', error);
       setStorageError('Your latest changes could not be saved. They are still open in this session.');
     });
   }, [canPersist, ready, state]);
@@ -156,7 +157,7 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
         AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state))
           .then(() => setStorageError(null))
           .catch((error: unknown) => {
-            console.error('Could not save Daymark data after retry.', error);
+            console.error('Could not save AIO Place data after retry.', error);
             setStorageError('Your latest changes could not be saved. They are still open in this session.');
           });
       },

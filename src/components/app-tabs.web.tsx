@@ -18,16 +18,16 @@ export default function AppTabs() {
         <NavigationBar>
           <View style={[styles.brand, compact && styles.brandCompact]}>
             <View style={styles.brandMark}>
-              <Text style={styles.brandGlyph}>d</Text>
+              <Text style={styles.brandGlyph}>A</Text>
             </View>
-            <Text style={styles.brandName}>daymark</Text>
+            <Text style={styles.brandName}>AIO Place</Text>
           </View>
           {links.map((link) => (
             <TabTrigger key={link.name} name={link.name} href={link.href} asChild>
               <NavigationLink icon={link.icon}>{compact ? link.compactLabel : link.label}</NavigationLink>
             </TabTrigger>
           ))}
-          <Text style={[styles.profileBadge, compact && styles.hidden]}>D</Text>
+          <Text style={[styles.profileBadge, compact && styles.hidden]}>A</Text>
         </NavigationBar>
       </TabList>
       <TabSlot style={styles.slot} />
