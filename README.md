@@ -2,6 +2,8 @@
 
 AIO Place brings savings goals, a calendar, and focus tools together in one personal dashboard. Made to learn native react along the way and is probably gonna be my passion project till I'm done with it. This is a current work in progress so report any issues in the issues tab if you see one. I'm fairly new to github so it might take a while for me to fix these problems and push some changes.
 
+*note: as mentioned before this project is used to learn native react and typescript, tho this project still used AI. But it is more heavily assisted rather than the actual AI writing it. I tried my best to make the project human written as much as possible to somewhat learn a few things about the back-end of Application Development. Shout out to Sir Harry for teaching the basics of Android Studio so i can compile this messy project into a ARM apk format
+
 ## Features
 
 - Track multiple savings funds with custom targets, contributions, progress, deadlines, and a pinned goal.
