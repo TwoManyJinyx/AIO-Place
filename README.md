@@ -31,12 +31,10 @@ Install Android Studio with its Android SDK and a Java 17 JDK, then run these co
 ```bash
 npx expo prebuild --platform android
 cd android
-.\gradlew.bat assembleDebug
+.\gradlew.bat assembleRelease -PreactNativeArchitectures=arm64-v8a
 ```
 
-You can directly install the apk through the releases tab at the right side of the screen of the repo page. Its a 64x ARM version so it could not work in some devices correctly
-
-Alternatively, its installable APK is created at `android/app/build/outputs/apk/debug/app-debug.apk`. Transfer it to your Android phone and open it to install. You may need to allow installs from that file manager or browser. This debug APK is for personal testing, not Google Play distribution.
+Install the self-contained APK at `android/app/build/outputs/apk/release/app-release.apk`. A debug APK skips bundling JavaScript and requires Metro to be running, so it will remain on the splash screen when installed by itself. The generated release build uses the local debug key for convenient testing and updates; configure a private release keystore before distributing through Google Play.
 
 ## Planned Things
 
